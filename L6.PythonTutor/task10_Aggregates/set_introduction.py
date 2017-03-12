@@ -99,3 +99,31 @@ print(a)
 a = [1,2,3,4,2,3,4,2,3,4]
 a = list(set(a))    # удалить дубликаты - если порядое не важен
 print(a)
+
+# change set's
+my_set = {1,3,5}
+print(my_set)
+my_set.update({2,3,4})          # my_set |= {2,3,4}
+print(my_set)
+my_set.intersection_update({0,1,2,3,10})    # my_set &= {0,1,2,3,10} add many elements
+print(my_set)
+my_set.difference_update({1})               # my_set -= {1}
+print(my_set)
+my_set.symmetric_difference_update({3,4})   # my_set ^= {3,4}
+print(my_set)
+my_set.add(5)   # my_set |= {5}  - add only 1 element
+print(my_set)
+my_set.remove(2)    # my_set -= {2} но выбрасывет KeyError если не находит
+print(my_set)
+my_set.discard(2)   # my_set -2 {2}   НЕ выбрасывет KeyError
+print(my_set)
+
+print(my_set.pop()) # удаляет елемент (случайный) и показывает - возвращает для  использования
+my_set.update({0,4,10,3,1,13})
+print(my_set)
+# print(my_set.pop(2))  # для множества - не работает
+print([1,2,3,4,5,6,7].pop(2))  # работает для list/string - показывает  елемент по индексу
+
+print(my_set)
+my_set.clear() # очистить множество - получает пустой set
+print(my_set)
