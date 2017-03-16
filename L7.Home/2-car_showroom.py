@@ -19,24 +19,40 @@ class ShowRoom(Car):
         self.name_showroom = new_name
         self.list_car = []
 
+    def __str__(self):
+        return ('ShowRoom: ' + self.name_showroom + ' ' + self.addr + ': ' + str(len(self.list_car)) + ' cars'  )
+
+
     def add_car(self, car):
         self.list_car.append(car)
 
     def show_cars(self):
-        for i in self.list_car:
-            print(i)
+        for item in self.list_car:
+            print(item)
 
     def sell_car(self, car):
-        # i = self.list_car.index(car)
-        # print('N: ',i, self.list_car(i))
-        pass
+        i = self.list_car.index(car)
+        sold_car = self.list_car.pop(i)
+        print('Sold car: ',sold_car)
+
 
 car1 = Car('Colt', 'Red', '2008', '$16000')
 car2 = Car('Audi', 'Red', '1999', '$12000')
 car3 = Car('Cherry')
+car4 = Car('VW', 'Black')
 
 shroom1 = ShowRoom('street 2', 'Room1')
-shroom1.add_car(str(car1))
-shroom1.add_car(str(car2))
+shroom1.add_car((car1))
+shroom1.add_car((car2))
+shroom1.add_car((car3))
+shroom1.add_car((car4))
+
+print(str(shroom1))
+print('исходное состояние склада')
+shroom1.show_cars()
+print()
+shroom1.sell_car(car1)
+print()
+print('остаток после продажи')
 shroom1.show_cars()
 
