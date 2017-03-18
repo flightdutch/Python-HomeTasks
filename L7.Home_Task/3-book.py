@@ -1,3 +1,5 @@
+class A:
+    pass
 
 class Book:
 
@@ -10,8 +12,11 @@ class Book:
     def __str__(self):
         return 'Book: ' + self.name + ', ' + self.year + ' ' + self.author
 
-    def __eq__(self, other_book):
-        pass
+# http://stackoverflow.com/questions/390250/elegant-ways-to-support-equivalence-equality-in-python-classes
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.name == other.name and self.author == other.author and self.year == other.year
+        return NotImplemented
 
     def add_review(self, new_review):
         self.review.append(new_review)
@@ -26,9 +31,14 @@ class Book:
 book1 = Book('Nineteen Eighty-Four', 1949, 'George Orwell')
 book2 = Book('Nineteen Eighty-Four', 1949, 'George Orwell')
 book3 = Book('Над пропастью во ржи', 1951, 'Jerome David Salinger')
+book4 = A()
 print(book1)
 book1.show_reviews()
 book1.add_review('Cool!!!')
 book1.show_reviews()
 book1.add_review('Not bad')
 book1.show_reviews()
+print('Check __eq__ function')
+print(book1 == book2)
+print(book1 == book3)
+print(book1 == book4)
