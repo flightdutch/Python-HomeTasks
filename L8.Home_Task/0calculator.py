@@ -22,15 +22,18 @@ operators = {
 def main():
     while True:
         try:
-            a = int(input('a: '))
-            b = int(input('b: '))
-        except:
-            print('error value: a or b')
-            return None
-
-        op = input('what do you want: +,-,*,/: ')
-
-        print(operators[op](a,b))
+            a = float(input('a: '))
+            b = float(input('b: '))
+            op = input('what do you want: +,-,*,/: ')
+            print(operators[op](a, b))
+        except ValueError:
+            print('value error for: a or b')
+        except KeyError:
+            print('type error for option - only: +, -, *, / ')
+        except ZeroDivisionError:
+            print('Attempt to divide by Zero')
+        except ArithmeticError:
+            print('Arithmetic error that occur for numeric calculation')
 
         if (input('stop - 0; continue - anykey')) == '0':
             break
