@@ -150,3 +150,9 @@ col2 = [row[1] for row in M] # Выбирает элементы второго 
 Множества ликвидируют дубликаты
 Ключи словарей являются уникальными
 109}
+
+# create dictionary
+d = {key: value for key in keys for value in values}
+d=dict(**kwargs)
+#d= dict(mapping, **kwargs)
+#d = dict(iterable, **kwargs)
